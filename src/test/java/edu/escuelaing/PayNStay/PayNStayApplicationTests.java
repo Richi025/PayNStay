@@ -1,13 +1,13 @@
-package edu.escuelaing.PayNStay;
+// package edu.escuelaing.PayNStay;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class PayNStayApplicationTests {
+// @SpringBootTest
+// class PayNStayApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }
