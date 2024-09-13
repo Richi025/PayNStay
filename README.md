@@ -80,7 +80,7 @@ You need to install the following tools and configure their dependencies:
 
 ## Class Diagram
 
-![Class Diagram](https://github.com/alexandrac1420/Modularizacion_Virtualizacion/blob/master/Pictures/diagramaClases.png)
+![Class Diagram](https://github.com/Richi025/PayNStay/blob/master/images/PayNStayRelationalModelsDiagram.png)
 
 ### Overview
 
@@ -157,7 +157,7 @@ The main classes in the system can be grouped into two key categories:
 
 The MongoDB database used in this project is configured as a cluster for improved performance, redundancy, and scalability. This configuration ensures high availability of data and seamless handling of large amounts of property, transaction, and appointment information. The cluster configuration also allows the system to easily scale as the number of users and properties grows.
 
-![MongoDB Cluster](https://github.com/Richi025/PayNStay/blob/master/Images/mongodb_cluster.png)
+![MongoDB Cluster](https://github.com/Richi025/PayNStay/blob/master/images/imageClusterMongo.png)
 
 ## Built With
 
