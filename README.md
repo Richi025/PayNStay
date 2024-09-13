@@ -171,9 +171,9 @@ I use [GitHub](https://github.com/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Erika Juliana Castro Romero** - [alexandrac1420](https://github.com/alexandrac1420)
+* **Erika Juliana Castro Romero** - [Juc28](https://github.com/Juc28)
 * **Alexandra Cortes Tovar** - [alexandrac1420](https://github.com/alexandrac1420)
-* **Mariana Pulido Moreno** - [alexandrac1420](https://github.com/alexandrac1420)
+* **Mariana Pulido Moreno** - [MPulidoM](https://github.com/MPulidoM)
 * **José Ricardo Vásquez Vega** - [Richi025](https://github.com/Richi025)
 * **Juan Sebastián Vásquez Vega** - [Sebasvasquezz](https://github.com/Sebasvasquezz)
 
