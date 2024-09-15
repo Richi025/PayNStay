@@ -2,6 +2,22 @@
 
 This project implements a microservices architecture using Spring Boot and Docker. The platform offers a personalized experience with artificial intelligence for recommendations, predictive value analysis, and augmented reality to visualize changes in properties. The system provides services for appointments, document management, property listing, transactions, and user management, all stored in a MongoDB database.
 
+## AI-Generated Visual Prototype
+
+ - Logo
+   
+   ![WhatsApp Image 2024-09-14 at 21 44 41 (1)](https://github.com/user-attachments/assets/0ee8fd6b-c7c2-4135-9069-50c2e4ad47c5)
+
+ - Home page
+   
+   ![WhatsApp Image 2024-09-14 at 21 44 41](https://github.com/user-attachments/assets/42e1c125-c769-4b7f-89d0-76138a8a7d2c)
+
+ - App
+ - Properties description page
+
+
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
