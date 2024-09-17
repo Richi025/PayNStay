@@ -22,6 +22,10 @@ public class Appointment {
         this.appointmentStatus = appointmentStatus;
     }
 
+    public Appointment() {
+        //TODO Auto-generated constructor stub
+    }
+
     public enum AppointmentStatus {
         PENDING, CONFIRMED, COMPLETED;
     }

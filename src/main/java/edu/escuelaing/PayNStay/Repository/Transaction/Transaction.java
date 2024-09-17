@@ -25,6 +25,10 @@ public class Transaction {
         this.transactionDate = LocalDate.now();
     }
 
+    public Transaction() {
+        //TODO Auto-generated constructor stub
+    }
+
     public enum TransactionType {
         PURCHASE, RENT;
     }

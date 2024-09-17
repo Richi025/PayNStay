@@ -19,6 +19,10 @@ public class Documents {
         this.documentUrl = documentUrl;
     }
 
+    public Documents() {
+        //TODO Auto-generated constructor stub
+    }
+
     public enum DocumentType {
         CONTRACT, PLANS, PERMITS;
     }

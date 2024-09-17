@@ -2,11 +2,13 @@ package edu.escuelaing.PayNStay.Repository.User;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Document(collection = "users")
-public class User {
+public class UserDto {
     @Id
     private UUID id;
     private String name;
@@ -14,8 +16,17 @@ public class User {
     private String password;
     private UserType userType; 
     private LocalDate registrationDate;
+    private List<String> roles;
+    
+    public List<String> getRoles() {
+        return roles;
+    }
 
-    public User(UUID id, String name, String email, String password, UserType userType) {
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
+    public UserDto(UUID id, String name, String email, String password, UserType userType) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -23,6 +34,16 @@ public class User {
         this.userType = userType;
         this.registrationDate = LocalDate.now();
     }
+
+    public UserDto() {
+    }
+
+    public UserDto(String email, String password, List<String> roles ) {
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+
 
     public enum UserType {
         OWNER, TENANT, AGENT;

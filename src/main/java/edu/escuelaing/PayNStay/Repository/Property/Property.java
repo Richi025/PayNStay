@@ -41,6 +41,10 @@ public class Property {
         this.publicationDate = LocalDate.now();
     }
 
+    public Property() {
+        //TODO Auto-generated constructor stub
+    }
+
     public enum PropertyType {
         HOUSE, APARTMENT, COMMERCIAL_PROPERTY;
     }
