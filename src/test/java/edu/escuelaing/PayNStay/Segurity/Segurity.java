@@ -74,27 +74,6 @@ class JwtRequestFilterTest {
         verify(securityContext).setAuthentication(any());
     }
 
-    // @Test
-    // void shouldThrowExceptionWithExpiredToken() throws ServletException, IOException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-    //     MockHttpServletRequest request = new MockHttpServletRequest();
-    //     MockHttpServletResponse response = new MockHttpServletResponse();
-
-    //     String token = "Bearer expiredToken";
-    //     request.addHeader("Authorization", token);
-
-    //     when(jwtUtil.extractAndVerifyClaims("expiredToken")).thenThrow(new ExpiredJwtException(null, null, "Token expired"));
-
-    //     Method doFilterInternal = JwtRequestFilter.class.getDeclaredMethod("doFilterInternal", HttpServletRequest.class, HttpServletResponse.class, FilterChain.class);
-    //     doFilterInternal.setAccessible(true);
-    //     try {
-    //         doFilterInternal.invoke(jwtRequestFilter, request, response, filterChain);
-    //     } catch (InvocationTargetException e) {
-    //         assertTrue(TOKEN_EXPIRED_MALFORMED_ERROR_MESSAGE);
-    //     }
-    //     verify(filterChain, never()).doFilter(request, response);
-    //     verify(securityContext, never()).setAuthentication(any());
-    // }
-
     @Test
     void shouldContinueChainWithNoAuthorizationHeader() throws ServletException, IOException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         MockHttpServletRequest request = new MockHttpServletRequest();
