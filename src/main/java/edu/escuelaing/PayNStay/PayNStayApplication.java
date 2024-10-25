@@ -1,25 +1,26 @@
 package edu.escuelaing.PayNStay;
 
-import edu.escuelaing.PayNStay.Repository.Appointment.Appointment;
-import edu.escuelaing.PayNStay.Repository.Appointment.Appointment.AppointmentStatus;
-import edu.escuelaing.PayNStay.Repository.Appointment.AppointmentRepository;
-import edu.escuelaing.PayNStay.Repository.Document.DocumentRepository;
-import edu.escuelaing.PayNStay.Repository.Document.Documents;
-import edu.escuelaing.PayNStay.Repository.Document.Documents.DocumentType;
-import edu.escuelaing.PayNStay.Repository.Property.Property;
-import edu.escuelaing.PayNStay.Repository.Property.Property.PropertyType;
-import edu.escuelaing.PayNStay.Repository.Property.PropertyRepository;
-import edu.escuelaing.PayNStay.Repository.Transaction.Transaction;
-import edu.escuelaing.PayNStay.Repository.Transaction.Transaction.TransactionType;
-import edu.escuelaing.PayNStay.Repository.Transaction.TransactionRepository;
-import edu.escuelaing.PayNStay.Repository.User.UserDto;
-import edu.escuelaing.PayNStay.Repository.User.UserDto.UserType;
-import edu.escuelaing.PayNStay.Repository.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+
+import edu.escuelaing.PayNStay.model.Appointment;
+import edu.escuelaing.PayNStay.model.Documents;
+import edu.escuelaing.PayNStay.model.Property;
+import edu.escuelaing.PayNStay.model.Transaction;
+import edu.escuelaing.PayNStay.model.User;
+import edu.escuelaing.PayNStay.model.Appointment.AppointmentStatus;
+import edu.escuelaing.PayNStay.model.Documents.DocumentType;
+import edu.escuelaing.PayNStay.model.Property.PropertyType;
+import edu.escuelaing.PayNStay.model.Transaction.TransactionType;
+import edu.escuelaing.PayNStay.model.User.UserType;
+import edu.escuelaing.PayNStay.repository.AppointmentRepository;
+import edu.escuelaing.PayNStay.repository.DocumentRepository;
+import edu.escuelaing.PayNStay.repository.PropertyRepository;
+import edu.escuelaing.PayNStay.repository.TransactionRepository;
+import edu.escuelaing.PayNStay.repository.UserRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -53,8 +54,8 @@ public class PayNStayApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         System.out.println("------------------------Insert multiple users----------------------------------");
-        UserDto user1 = new UserDto(UUID.randomUUID(), "John Doe", "john.doe@example.com", "password123", UserType.OWNER);
-        UserDto user2 = new UserDto(UUID.randomUUID(), "Jane Smith", "jane.smith@example.com", "password123", UserType.TENANT);
+        User user1 = new User(UUID.randomUUID(), "John Doe", "john.doe@example.com", "password123", UserType.OWNER);
+        User user2 = new User(UUID.randomUUID(), "Jane Smith", "jane.smith@example.com", "password123", UserType.TENANT);
         userRepository.save(user1);
         userRepository.save(user2);
         System.out.println("Users inserted: " + user1 + ", " + user2);
