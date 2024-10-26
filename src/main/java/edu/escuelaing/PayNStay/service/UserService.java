@@ -1,6 +1,7 @@
 package edu.escuelaing.PayNStay.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import edu.escuelaing.PayNStay.model.User;
@@ -11,6 +12,9 @@ import java.util.UUID;
 
 @Service
 public class UserService {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private UserRepository userRepository;
@@ -25,12 +29,13 @@ public class UserService {
 
     public User createUser(User user) {
         user.setId(UUID.randomUUID());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
     public User updateUser(UUID id, User updatedUser) {
         return userRepository.findById(id).map(user -> {
-            user.setName(updatedUser.getName());
+            user.setUsername(updatedUser.getUsername());
             user.setEmail(updatedUser.getEmail());
             user.setPassword(updatedUser.getPassword());
             user.setUserType(updatedUser.getUserType());

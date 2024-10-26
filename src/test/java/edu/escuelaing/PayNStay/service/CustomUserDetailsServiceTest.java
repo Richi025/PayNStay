@@ -30,7 +30,7 @@ class CustomUserDetailsServiceTest {
     void testLoadUserByUsernameUserFound() {
         String username = "testUser";
         User user = new User();
-        user.setName(username);
+        user.setUsername(username);
         user.setPassword("password123");
         when(userRepository.findByUsername(username)).thenReturn(user);
 

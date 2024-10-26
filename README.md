@@ -99,8 +99,8 @@ You need to install the following tools and configure their dependencies:
     ```
 
 ## Class Diagram
+![Class Diagram](images/PayNStayRelationalModelsDiagram.png)
 
-![Class Diagram](https://github.com/Richi025/PayNStay/blob/master/images/PayNStayRelationalModelsDiagram.png)
 
 ### Overview
 
@@ -176,8 +176,24 @@ The main classes in the system can be grouped into two key categories:
 ## MongoDB Cluster
 
 The MongoDB database used in this project is configured as a cluster for improved performance, redundancy, and scalability. This configuration ensures high availability of data and seamless handling of large amounts of property, transaction, and appointment information. The cluster configuration also allows the system to easily scale as the number of users and properties grows.
+![MongoDB Cluster](images/imageClusterMongo.png)
 
-![MongoDB Cluster](https://github.com/Richi025/PayNStay/blob/master/images/imageClusterMongo.png)
+## Tests
+Run the tests with the command:
+
+```sh
+mvn test
+```
+Result:
+![Test results](images/tests.png)
+
+**Mockito:** is used to simulate the behavior of dependencies (such as PropertyService in the controller or PropertyRepository in the service) without interacting with the real database.
+
+**JUnit:** is used to run the tests and verify the expected behaviors.
+
+In these tests: 
+- **Controller:** We simulate the calls to the service methods and verify that the responses are correct.
+- **Service:** We simulate the database access through the Repositories and verify that the data is correctly persisted and retrieved.
 
 ## Built With
 

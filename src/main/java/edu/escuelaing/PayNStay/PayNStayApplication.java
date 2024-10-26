@@ -21,6 +21,7 @@ import edu.escuelaing.PayNStay.repository.DocumentRepository;
 import edu.escuelaing.PayNStay.repository.PropertyRepository;
 import edu.escuelaing.PayNStay.repository.TransactionRepository;
 import edu.escuelaing.PayNStay.repository.UserRepository;
+import edu.escuelaing.PayNStay.service.UserService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -33,6 +34,9 @@ public class PayNStayApplication implements CommandLineRunner {
 
     @Autowired
     private PropertyRepository propertyRepository;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private UserRepository userRepository;
@@ -56,8 +60,8 @@ public class PayNStayApplication implements CommandLineRunner {
         System.out.println("------------------------Insert multiple users----------------------------------");
         User user1 = new User(UUID.randomUUID(), "John Doe", "john.doe@example.com", "password123", UserType.OWNER);
         User user2 = new User(UUID.randomUUID(), "Jane Smith", "jane.smith@example.com", "password123", UserType.TENANT);
-        userRepository.save(user1);
-        userRepository.save(user2);
+        userService.createUser(user1);
+        userService.createUser(user2);
         System.out.println("Users inserted: " + user1 + ", " + user2);
 
         System.out.println("------------------------Insert multiple properties----------------------------------");
@@ -100,7 +104,7 @@ public class PayNStayApplication implements CommandLineRunner {
         System.out.println("Documents inserted: " + document1 + ", " + document2);
 
         System.out.println("------------------------Update a user(Jhon Doe)----------------------------------");
-        user1.setName("John Doe Updated");
+        user1.setUsername("John Doe Update");
         userRepository.save(user1);
         System.out.println("User updated: " + user1);
 

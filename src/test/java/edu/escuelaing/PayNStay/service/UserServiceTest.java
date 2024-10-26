@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,9 @@ class UserServiceTest {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private PasswordEncoder passwordEncoder;
+    
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -69,6 +73,7 @@ class UserServiceTest {
     @Test
     void testCreateUser() {
         User user = new User();
+        user.setPassword("sssdssdd");
         when(userRepository.save(any(User.class))).thenReturn(user);
 
         User result = userService.createUser(user);
@@ -84,7 +89,7 @@ class UserServiceTest {
         User existingUser = new User();
         User updatedUser = new User();
         
-        updatedUser.setName("John Doe");
+        updatedUser.setUsername("John Doe");
         updatedUser.setEmail("john@example.com");
         updatedUser.setPassword("newpassword");
         updatedUser.setUserType(UserType.AGENT); 
@@ -95,7 +100,7 @@ class UserServiceTest {
         User result = userService.updateUser(userId, updatedUser);
 
         assertNotNull(result);
-        assertEquals("John Doe", existingUser.getName());
+        assertEquals("John Doe", existingUser.getUsername());
         assertEquals("john@example.com", existingUser.getEmail());
         assertEquals("newpassword", existingUser.getPassword());
         assertEquals(UserType.AGENT, existingUser.getUserType());
