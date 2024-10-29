@@ -195,6 +195,112 @@ In these tests:
 - **Controller:** We simulate the calls to the service methods and verify that the responses are correct.
 - **Service:** We simulate the database access through the Repositories and verify that the data is correctly persisted and retrieved.
 
+## Test Report
+
+### Author
+Name: PayNStay
+
+### Date
+Date: 31/10/2024
+
+### Summary
+
+This report outlines the unit and integration tests conducted for the Property Management System. The tests ensure the reliability of CRUD (Create, Read, Update, Delete) operations for various entities, including `Appointment`, `Document`, `Property`, `Transaction`, and `User`. These tests cover both the `Controller` and `Service` layers to verify data validation, persistence, and retrieval functionality, as well as security measures such as token authentication and endpoint protection.
+
+### Tests Conducted
+
+#### Controller Tests
+
+1. **Test `testCreateAppointment`**
+   - **Description**: Ensures an appointment can be created with valid data.
+   - **Objective**: Verify that `AppointmentController` can accept a POST request to create an appointment.
+   - **Expected Behavior**: A new appointment is created and persisted with a unique ID.
+   - **Verification**: Confirms response includes appointment details and that data is stored in the database.
+
+2. **Test `testGetAllDocuments`**
+   - **Description**: Retrieves a list of documents with pagination.
+   - **Objective**: Validate that `DocumentController` can return a paginated document list.
+   - **Expected Behavior**: Returns the correct number of documents with pagination metadata.
+   - **Verification**: Checks the response content and pagination details.
+
+3. **Test `testUpdateProperty`**
+   - **Description**: Tests updating an existing property’s information.
+   - **Objective**: Ensure that `PropertyController` allows properties to be updated and saved.
+   - **Expected Behavior**: Property data is updated in the database and returned.
+   - **Verification**: Confirms updated data matches the request and is persisted.
+
+4. **Test `testDeleteTransaction`**
+   - **Description**: Validates deletion of a transaction by ID.
+   - **Objective**: Verify `TransactionController` can delete a transaction entry.
+   - **Expected Behavior**: Transaction is removed from the database.
+   - **Verification**: Confirms deletion by checking for absence in the database.
+
+5. **Test `testGetUserById`**
+   - **Description**: Retrieves a user by ID and verifies data integrity.
+   - **Objective**: Ensure `UserController` can fetch user details.
+   - **Expected Behavior**: Returns user data matching the provided ID.
+   - **Verification**: Confirms returned user data and checks repository for consistency.
+
+---
+
+### Service Layer Tests
+
+1. **Test `testGetAllProperties`**
+   - **Description**: Retrieves a paginated list of properties.
+   - **Objective**: Ensure `PropertyService` retrieves data with pagination support.
+   - **Expected Behavior**: Returns the correct page with the expected properties.
+   - **Verification**: Confirms pagination and content accuracy.
+
+2. **Test `testGetAppointmentById`**
+   - **Description**: Tests retrieval of a specific appointment.
+   - **Objective**: Ensure `AppointmentService` fetches appointments by ID.
+   - **Expected Behavior**: Returns the correct appointment details.
+   - **Verification**: Checks ID and data accuracy.
+
+3. **Test `testCreateDocument`**
+   - **Description**: Tests document creation and persistence.
+   - **Objective**: Verify `DocumentService` creates and saves documents.
+   - **Expected Behavior**: Document data is stored and accessible.
+   - **Verification**: Confirms repository interaction and data integrity.
+
+4. **Test `testUpdateTransaction`**
+   - **Description**: Ensures transaction data can be updated.
+   - **Objective**: Validate that `TransactionService` updates records.
+   - **Expected Behavior**: Updated transaction is saved and returned.
+   - **Verification**: Confirms repository reflects changes.
+
+5. **Test `testDeleteUser`**
+   - **Description**: Verifies user deletion from the database.
+   - **Objective**: Ensure `UserService` can remove users.
+   - **Expected Behavior**: User data is deleted from repository.
+   - **Verification**: Confirms absence of user after deletion.
+
+---
+
+### Security Tests
+
+The system includes security-related tests to ensure endpoint protection and secure access:
+
+1. **Token Authentication Validation**:
+   - **Test**: Confirm that only authenticated requests can access protected endpoints.
+   - **Objective**: Verify that endpoints are secured against unauthorized access.
+   - **Expected Behavior**: Requests without valid tokens result in 401 Unauthorized status.
+
+2. **CSRF Protection**:
+   - **Test**: Ensure CSRF tokens are required for state-changing requests.
+   - **Objective**: Protect endpoints from CSRF attacks.
+   - **Expected Behavior**: Requests missing CSRF tokens return 403 Forbidden status.
+
+---
+
+## Test Coverage
+
+- **Controller Layer**: Coverage includes all CRUD operations across key controllers (`Appointment`, `Document`, `Property`, `Transaction`, `User`), verifying endpoint functionality.
+- **Service Layer**: Ensures business logic in `AppointmentService`, `DocumentService`, `PropertyService`, `TransactionService`, and `UserService` works as intended, with repository interactions validated.
+- **Security Layer**: Confirms CSRF protection and token authentication are enforced for relevant endpoints, protecting the application against unauthorized access.
+
+
+
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
